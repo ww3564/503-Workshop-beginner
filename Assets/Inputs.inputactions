@@ -1,9 +1,9 @@
 {
     "version": 1,
-    "name": "Movement",
+    "name": "Inputs",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Gameplay",
             "id": "bb6ef36a-a692-45f1-b9bc-b88e9c78dec0",
             "actions": [
                 {
@@ -16,8 +16,8 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New Action",
-                    "type": "Value",
+                    "name": "Movement",
+                    "type": "PassThrough",
                     "id": "23a61bed-4b00-4747-864a-b0b6a4921037",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -33,7 +33,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Action",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -44,7 +44,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -55,7 +55,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -66,7 +66,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -77,7 +77,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Action",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
