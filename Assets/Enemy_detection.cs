@@ -5,16 +5,17 @@ public class Enemy_detection : MonoBehaviour
 
     [SerializeField] GameObject Kratos;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] Transform target;
 
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(0, 360 * Time.deltaTime, 0);
+
+        if (Kratos != null)
+        {
+            transform.LookAt(target);
+        }
 
         //float playerProximity = Quaternion.Dot(transform.rotation,); (If the player is in the perifiral vision of the enemy)
         //Get a Quaternion that represents the direction of the enemy looking at the player (Not where the enemy is looking right now) and normalize it
