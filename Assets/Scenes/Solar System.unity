@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 134590583}
   - component: {fileID: 134590582}
   - component: {fileID: 134590586}
+  - component: {fileID: 134590587}
   m_Layer: 0
   m_Name: Planet B
   m_TagString: Untagged
@@ -225,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 134590581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.50551, y: 0, z: 1.81306}
+  m_LocalPosition: {x: -8.50551, y: 0, z: -6.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,8 +257,26 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
+--- !u!114 &134590587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134590581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a833a64e9d02448a2ab8372afa58f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orbiting
+  gravitationalConstant: 0.067
+  startingVelocity: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
+  otherRBs:
+  - {fileID: 266328073}
+  - {fileID: 709901968}
 --- !u!1 &266328071
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,11 +310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a833a64e9d02448a2ab8372afa58f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orbiting
-  gravitationalConstant: 10
+  gravitationalConstant: 0.067
   startingVelocity: {x: 0, y: 0, z: 0}
+  rb: {fileID: 0}
   otherRBs:
-  - {fileID: 134590586}
   - {fileID: 709901968}
+  - {fileID: 134590586}
 --- !u!54 &266328073
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -321,7 +341,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!135 &266328074
 SphereCollider:
@@ -428,6 +448,7 @@ GameObject:
   - component: {fileID: 709901970}
   - component: {fileID: 709901969}
   - component: {fileID: 709901968}
+  - component: {fileID: 709901973}
   m_Layer: 0
   m_Name: Planet A
   m_TagString: Untagged
@@ -443,7 +464,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709901967}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -460,7 +481,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!135 &709901969
 SphereCollider:
@@ -548,12 +569,30 @@ Transform:
   m_GameObject: {fileID: 709901967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6424, y: 0.26247, z: 2.3155}
+  m_LocalPosition: {x: -4.6424, y: 0.26247, z: 7.3155003}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &709901973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709901967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a833a64e9d02448a2ab8372afa58f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orbiting
+  gravitationalConstant: 0.067
+  startingVelocity: {x: 6, y: 0, z: 0}
+  rb: {fileID: 0}
+  otherRBs:
+  - {fileID: 266328073}
+  - {fileID: 134590586}
 --- !u!1 &915481317
 GameObject:
   m_ObjectHideFlags: 0

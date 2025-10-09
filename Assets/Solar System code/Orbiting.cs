@@ -5,11 +5,10 @@ public class Orbiting : MonoBehaviour
 
     [SerializeField] float gravitationalConstant;
     [SerializeField] Vector3 startingVelocity;
-    Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     [SerializeField] Rigidbody[] otherRBs;
     
-
-    void OneEnable()
+    void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
         rb.linearVelocity = startingVelocity;
@@ -23,6 +22,16 @@ public class Orbiting : MonoBehaviour
         {
             newVelocity += CalculateVelocityImpact(otherRB);
         }
+
+        //for (int i = 0; i < otherRBs.Length; i++)
+        //{
+        //    newVelocity += CalculateVelocityImpact(otherRBs[i]);
+        //}
+        
+        //for (int i = otherRBs.Length - 1; i >= 0; i--)
+        //{
+        //    
+        //}
 
         rb.linearVelocity = newVelocity;
     }

@@ -1,7 +1,7 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
-public class Enemy_detection : MonoBehaviour
+public class Enemy_detection : MonoBehaviour, IDamageable
 {
 
     [SerializeField] GameObject kratos;
@@ -10,9 +10,18 @@ public class Enemy_detection : MonoBehaviour
 
     private bool detected = false;
 
+    private bool dead = false;
+
+    [SerializeField] float deathTimer = 3f;
+
     // Update is called once per frame
     void Update()
     {
+        if(dead)
+        {
+            return;
+        }
+
         if (!detected)
         {
             transform.Rotate(0, 90 * Time.deltaTime, 0);
@@ -58,5 +67,16 @@ public class Enemy_detection : MonoBehaviour
         return hit.collider.gameObject.layer == 3;
     }
 
+    public void Axe()
+    {
+        dead = true;
+        StartCoroutine(DeathTimer());
+    }
+
+    private IEnumerator DeathTimer()
+    {
+        yield return new WaitForSeconds(deathTimer); //Wait for an amount of seconds = to death timer
+        Destroy(this.gameObject);
+    }
 }
 
