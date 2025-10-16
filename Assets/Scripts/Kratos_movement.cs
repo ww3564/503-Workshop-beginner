@@ -7,12 +7,20 @@ public class Kratos_movement : MonoBehaviour
     [SerializeField] private Vector2 movementInput = Vector2.zero;
     [SerializeField] float movement;
 
+    private ThirdPersonCamera myCamera;
+
     private bool moving = false;
+
+    private void Start()
+    {
+        myCamera = GetComponent<ThirdPersonCamera>();
+    }
 
     private void Update()
     {
         Vector3 newMovementInput = new Vector3(movementInput.x, 0, movementInput.y);
         transform.position += newMovementInput * Time.deltaTime * movement;
+        myCamera.SyncMovement(newMovementInput * Time.deltaTime * movement);
     }
 
     public void SyncMovementInput(InputAction.CallbackContext input)

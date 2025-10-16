@@ -427,13 +427,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47112113, y: -0, z: -0, w: 0.8820685}
-  m_LocalPosition: {x: 0, y: 13, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.35195783, y: -0, z: -0, w: 0.9360159}
+  m_LocalPosition: {x: 0.25825512, y: 4.1383886, z: -6.987109}
+  m_LocalScale: {x: 1, y: 1.347244, z: 0.770979}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 56.214, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 41.214, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 931058394}
   - component: {fileID: 931058393}
   - component: {fileID: 931058398}
+  - component: {fileID: 931058400}
   - component: {fileID: 931058397}
   - component: {fileID: 931058399}
   m_Layer: 3
@@ -1114,6 +1115,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 09bf8274-3aac-41a5-8f02-98adc4551324
     m_ActionName: 'Gameplay/Throw[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 931058400}
+        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3f6a5a65-8ed8-4610-8108-6ea4fda321ad
+    m_ActionName: 'Gameplay/CameraInput[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1160,6 +1177,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &931058400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931058392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6be1e6f4337e3748b49d76d44b78cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCamera
+  playerCamera: {fileID: 330585546}
+  cameraSensitivity: 0.5
+  invertedCamera: 0
+  horizontalCharacterSpin: 1
+  cameraXValueClamp: {x: -60, y: 60}
 --- !u!1 &1098413400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,10 +2030,10 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 385146684}
+  - {fileID: 330585546}
   - {fileID: 931058396}
   - {fileID: 1384610829}
   - {fileID: 422624527}
