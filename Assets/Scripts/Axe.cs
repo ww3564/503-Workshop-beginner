@@ -8,6 +8,7 @@ public class Axe : MonoBehaviour
 
     [SerializeField] GameObject Cube;
     [SerializeField] Vector3 initialPosition;
+    [SerializeField] ThirdPersonCamera camera;
 
     [SerializeField] float lerpAmount;
 
@@ -34,7 +35,7 @@ public class Axe : MonoBehaviour
     {
         if(state == axeState.held)
         {
-            transform.position = Cube.transform.position;
+            transform.position = camera.transform.position;
         }
     }
 
@@ -53,7 +54,7 @@ public class Axe : MonoBehaviour
         {
             state = axeState.throwing;
             rb.isKinematic = false;
-            rb.AddForce(this.transform.forward * forceValue, ForceMode.Impulse);
+            rb.AddForce(camera.transform.forward * forceValue, ForceMode.Impulse);
         }
     }
 
@@ -84,6 +85,11 @@ public class Axe : MonoBehaviour
         if (col.gameObject.GetComponent<IDamageable>() != null)
         {
             col.gameObject.GetComponent<IDamageable>().Axe();
+        }
+
+        if (col.gameObject.transform.parent == null)
+        {
+            return;
         }
 
         if (col.gameObject.transform.parent.GetComponent<IDamageable>() != null)

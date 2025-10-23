@@ -15,23 +15,14 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] private Vector2 cameraXValueClamp = new Vector2(-60f, 60f);
     //Clamp values that stop our camera from flipping fully over or under the player
 
-    public void SyncMovement(Vector3 playerMovement) //Janky! Call this Function whenever your player moves (Could use player Velocity as well)
-    {
-        Vector3 movementVector = (transform.right * playerMovement.x) + (transform.forward * playerMovement.z); //It determines in what way your player moved
-        playerCamera.transform.position += movementVector; //And adds that movement to your camera
-    }
-
     public void MoveCamera(InputAction.CallbackContext newInput) //Assign an Input Event to this, using Mouse Delta / Joystick input
     {
         Vector2 inputAxes = newInput.ReadValue<Vector2>() * cameraSensitivity; // Get Mouse Input * mouseSensitivity
 
         #region HorizontalMovement
 
-        if (horizontalCharacterSpin)
-        {
-            transform.Rotate(0f, inputAxes.x, 0f); //Spin our whole character left / right based 
-        }
-        playerCamera.RotateAround(transform.position, Vector3.up, inputAxes.x); //Rotate the camera around the player horizontally
+        transform.Rotate(0f, inputAxes.x, 0f); //Spin our whole character left / right based 
+
 
         #endregion
 
@@ -62,7 +53,7 @@ public class ThirdPersonCamera : MonoBehaviour
             vertAngle = cameraXValueClamp.y + currentRot + 0.01f; //Make sure we rotated by an inbounds angle
         }
 
-        playerCamera.RotateAround(transform.position, playerCamera.transform.right, vertAngle); //Rotate the camera around the player vertically
+        playerCamera.Rotate(vertAngle, 0f, 0f); //Rotate the camera around the player vertically
 
         #endregion
     }

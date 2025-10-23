@@ -407,7 +407,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -427,13 +427,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35195783, y: -0, z: -0, w: 0.9360159}
-  m_LocalPosition: {x: 0.25825512, y: 4.1383886, z: -6.987109}
-  m_LocalScale: {x: 1, y: 1.347244, z: 0.770979}
+  m_LocalRotation: {x: -0.00000046193594, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.269, z: 0}
+  m_LocalScale: {x: 1.2544451, y: 0.82857513, z: 0.22904223}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 41.214, y: 0, z: 0}
+  m_Father: {fileID: 931058396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   Cube: {fileID: 1098413400}
   initialPosition: {x: 0, y: 0, z: 0}
+  camera: {fileID: 0}
   lerpAmount: 0
   lerpTime: 1
   vectorPath: {x: 0, y: 0, z: 0}
@@ -630,7 +631,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -938,9 +939,7 @@ GameObject:
   - component: {fileID: 931058394}
   - component: {fileID: 931058393}
   - component: {fileID: 931058398}
-  - component: {fileID: 931058400}
   - component: {fileID: 931058397}
-  - component: {fileID: 931058399}
   m_Layer: 3
   m_Name: Kratos
   m_TagString: Untagged
@@ -967,7 +966,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &931058394
@@ -1034,12 +1033,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931058392}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 1, z: -5.68}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000037252897, w: 1}
+  m_LocalPosition: {x: 0.33, y: 3, z: -5.68}
   m_LocalScale: {x: 0.7971652, y: 2.6350873, z: 0.7921874}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1098413404}
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &931058397
@@ -1117,8 +1117,8 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Throw[/Keyboard/f]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 931058400}
-        m_TargetAssemblyTypeName: ThirdPersonCamera, Assembly-CSharp
+      - m_Target: {fileID: 931058398}
+        m_TargetAssemblyTypeName: Kratos_movement, Assembly-CSharp
         m_MethodName: MoveCamera
         m_Mode: 0
         m_Arguments:
@@ -1149,50 +1149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movemnts
   movementInput: {x: 0, y: 0}
-  movement: 15
---- !u!54 &931058399
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931058392}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &931058400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931058392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6be1e6f4337e3748b49d76d44b78cea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCamera
-  playerCamera: {fileID: 330585546}
+  movementSpeed: 15
   cameraSensitivity: 0.5
   invertedCamera: 0
-  horizontalCharacterSpin: 1
   cameraXValueClamp: {x: -60, y: 60}
 --- !u!1 &1098413400
 GameObject:
@@ -1333,6 +1292,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 09bf8274-3aac-41a5-8f02-98adc4551324
     m_ActionName: 'Gameplay/Throw[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f6a5a65-8ed8-4610-8108-6ea4fda321ad
+    m_ActionName: 'Gameplay/CameraInput[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -2033,7 +1996,6 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 385146684}
-  - {fileID: 330585546}
   - {fileID: 931058396}
   - {fileID: 1384610829}
   - {fileID: 422624527}
