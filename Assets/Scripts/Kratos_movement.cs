@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,8 +12,11 @@ public class Kratos_movement : MonoBehaviour
     [SerializeField] private bool invertedCamera = false; //Is camera inverted or not?
     [SerializeField] private Vector2 cameraXValueClamp = new Vector2(-60f, 60f);
     //Clamp values that stop our camera from flipping fully over or under the player
+    [SerializeField] private float jumpSpeed;
 
+    private KeyCode JumpKey;
 
+    private bool jumpTriggered;
     private ThirdPersonCamera myCamera;
     private Rigidbody rb;
 
@@ -78,4 +82,35 @@ public class Kratos_movement : MonoBehaviour
 
         #endregion
     }
+    void Update()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public Vector2 Jumping {  get; private set; }
+
+    public event Action OnJumpButton;
+
+    /*private void Awake()
+    {
+        .OnJumpButton += JumpButtonPressed;
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        Jumping = inputValue.Get<Vector2>();
+    }
+
+    private void OnJump(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            OnJumpButton?.Invoke();
+        }
+    }
+
+    private void JumpButtonPressed()
+    {
+        jumpTriggered = true;
+    } */
 }

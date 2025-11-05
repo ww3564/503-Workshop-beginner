@@ -16,15 +16,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "23a61bed-4b00-4747-864a-b0b6a4921037",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Throw",
                     "type": "Button",
                     "id": "09bf8274-3aac-41a5-8f02-98adc4551324",
@@ -32,6 +23,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "ce8d693a-4b63-4d6d-89b7-a6a413a2d9ff",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Movement",
+                    "type": "PassThrough",
+                    "id": "23a61bed-4b00-4747-864a-b0b6a4921037",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "CameraInput",
@@ -140,6 +149,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "717bf74b-e684-4564-b5d6-78867ab43290",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
