@@ -30,6 +30,7 @@ public class Enemy_detection : MonoBehaviour, IDamageable
         {
             transform.LookAt(kratos.transform);
             detected = CanISeePlayer();
+            Damage();
         }
 
 
@@ -77,6 +78,11 @@ public class Enemy_detection : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(deathTimer); //Wait for an amount of seconds = to death timer
         Destroy(this.gameObject);
+    }
+
+    private void Damage()
+    {
+        kratos.GetComponent<Health>().health -= 0.01f;
     }
 }
 

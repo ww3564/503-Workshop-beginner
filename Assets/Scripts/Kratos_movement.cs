@@ -1,45 +1,103 @@
 using System;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Kratos_movement : MonoBehaviour
 {
     [SerializeField] private Vector2 movementInput = Vector2.zero;
+    private bool jumpInput;
+
+
     [SerializeField] float movementSpeed;
 
     [SerializeField] private float cameraSensitivity = 0.5f; //Adjustable variable based on how much camera should move based on input
     [SerializeField] private bool invertedCamera = false; //Is camera inverted or not?
     [SerializeField] private Vector2 cameraXValueClamp = new Vector2(-60f, 60f);
     //Clamp values that stop our camera from flipping fully over or under the player
+    
     [SerializeField] private float jumpSpeed;
+    [SerializeField] private float groundDistanceCheck;
+    [SerializeField] private float gravity;
 
-    private KeyCode JumpKey;
+    [SerializeField] Vector3 velocity;
 
-    private bool jumpTriggered;
-    private ThirdPersonCamera myCamera;
+    private Camera myCamera;
     private Rigidbody rb;
-
-    private bool moving = false;
 
     private void Start()
     {
-        myCamera = GetComponent<ThirdPersonCamera>();
-        //rb = GetComponent<Rigidbody>();
+        myCamera = GetComponentInChildren<Camera>();
+        rb = GetComponent<Rigidbody>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 newMovementInput = new Vector3(movementInput.x, 0, movementInput.y);
         float forwardsMovement = newMovementInput.z;
         float sidewaysMovement = newMovementInput.x;
-        transform.position += transform.forward * forwardsMovement * Time.deltaTime * movementSpeed;
-        transform.position += transform.right * sidewaysMovement * Time.deltaTime * movementSpeed;
+
+        Vector3 horizontalVel = (transform.forward * forwardsMovement * movementSpeed) + (transform.right * sidewaysMovement * movementSpeed);
+        float verticalVel = rb.linearVelocity.y;
+
+        if (OnGrounded())
+        {
+            if (verticalVel < 0f)
+            {
+                Debug.Log("Setting velocity to 0");
+                verticalVel = 0;
+                
+            }
+
+            if (jumpInput)
+            {
+                verticalVel = jumpSpeed;
+            }
+        }
+        else
+        {
+            verticalVel -= gravity * Time.deltaTime;
+        }
+
+        rb.linearVelocity = horizontalVel + (Vector3.up * verticalVel);
+
+        velocity = rb.linearVelocity;
+        jumpInput = false;
+    }
+
+    private bool OnGrounded()
+    {
+        RaycastHit hitInfo;
+        MeshCollider col = GetComponentInChildren<MeshCollider>();
+        Vector3 rayCastOffset = -Vector3.up * col.bounds.extents.y;
+        Physics.Raycast(transform.position + rayCastOffset, -transform.up, out hitInfo, groundDistanceCheck);
+        Debug.DrawRay(transform.position + rayCastOffset, -transform.up * groundDistanceCheck, Color.red, 0.1f);
+
+        if (hitInfo.collider != null)
+        {
+            if (hitInfo.collider.tag == "Platforms")
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void SyncMovementInput(InputAction.CallbackContext input)
     {
         movementInput = input.ReadValue<Vector2>(); //Vector2 Bounds of (1, 1) and (-1, -1), rests at (0,0);
+    }
+
+    public void SyncJumpMovement(InputAction.CallbackContext input)
+    {
+        if(!input.canceled)
+        {
+            jumpInput = true;
+        }
     }
 
     public void MoveCamera(InputAction.CallbackContext newInput) //Assign an Input Event to this, using Mouse Delta / Joystick input
@@ -69,12 +127,10 @@ public class Kratos_movement : MonoBehaviour
 
         if (desiredRot > cameraXValueClamp.y) //If our desired Rot is too high
         {
-            Debug.Log(desiredRot + " is too high");
             vertAngle = cameraXValueClamp.y - currentRot - 0.01f; //Make sure we rotated by an inbounds angle
         }
         else if (desiredRot < cameraXValueClamp.x) //If our desired ROt is too low
         {
-            Debug.Log(desiredRot + " is too low");
             vertAngle = cameraXValueClamp.y + currentRot + 0.01f; //Make sure we rotated by an inbounds angle
         }
 
@@ -82,35 +138,4 @@ public class Kratos_movement : MonoBehaviour
 
         #endregion
     }
-    void Update()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public Vector2 Jumping {  get; private set; }
-
-    public event Action OnJumpButton;
-
-    /*private void Awake()
-    {
-        .OnJumpButton += JumpButtonPressed;
-    }
-
-    private void OnMove(InputValue inputValue)
-    {
-        Jumping = inputValue.Get<Vector2>();
-    }
-
-    private void OnJump(InputValue inputValue)
-    {
-        if (inputValue.isPressed)
-        {
-            OnJumpButton?.Invoke();
-        }
-    }
-
-    private void JumpButtonPressed()
-    {
-        jumpTriggered = true;
-    } */
 }

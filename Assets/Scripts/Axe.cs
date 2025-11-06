@@ -4,11 +4,9 @@ using UnityEngine.InputSystem;
 
 public class Axe : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    [SerializeField] GameObject Cube;
+    [SerializeField] GameObject hand;
     [SerializeField] Vector3 initialPosition;
-    [SerializeField] ThirdPersonCamera camera;
+    [SerializeField] Camera cam;
 
     [SerializeField] float lerpAmount;
 
@@ -35,7 +33,7 @@ public class Axe : MonoBehaviour
     {
         if(state == axeState.held)
         {
-            transform.position = camera.transform.position;
+            transform.position = hand.transform.position;
         }
     }
 
@@ -54,7 +52,7 @@ public class Axe : MonoBehaviour
         {
             state = axeState.throwing;
             rb.isKinematic = false;
-            rb.AddForce(camera.transform.forward * forceValue, ForceMode.Impulse);
+            rb.AddForce(cam.transform.forward * forceValue, ForceMode.Impulse);
         }
     }
 
@@ -66,7 +64,7 @@ public class Axe : MonoBehaviour
 
         for (float i = 0; i < lerpTime; i += Time.deltaTime)
         {
-            Vector3 targetPosition = Cube.transform.position;
+            Vector3 targetPosition = hand.transform.position;
             transform.position = Vector3.Slerp(initialPosition, targetPosition, i / lerpTime);
             yield return null;
         }
