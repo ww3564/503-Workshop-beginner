@@ -4,18 +4,18 @@ using UnityEngine;
 public class Enemy_detection : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] GameObject kratos;
+    [SerializeField] protected GameObject kratos;
 
-    [SerializeField] GameObject detectionObject;
+    [SerializeField] protected GameObject detectionObject;
 
-    private bool detected = false;
+    protected bool detected = false;
 
-    private bool dead = false;
+    protected bool dead = false;
 
     [SerializeField] float deathTimer = 3f;
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if(dead)
         {
@@ -46,18 +46,9 @@ public class Enemy_detection : MonoBehaviour, IDamageable
             }
         }
 
-
-
-        //float playerProximity = Quaternion.Dot(transform.rotation,); (If the player is in the perifiral vision of the enemy)
-        //Get a Quaternion that represents the direction of the enemy looking at the player (Not where the enemy is looking right now) and normalize it
-        //Check the dot product of the enemies direction (where the enemy is looking at currently) against the direction of the enemy looking at the player (Where I want the enemy to look at)
-        //If the dot product is close enough to 1 (based on a float value)
-        //  Stop rotating the camera
-        //  Make the camera look at the player
-
     }
 
-    private bool CanISeePlayer()
+    protected bool CanISeePlayer()
     {
         RaycastHit hit;
         Vector3 kratosVector =  (kratos.transform.position - detectionObject.transform.position).normalized;
@@ -74,13 +65,13 @@ public class Enemy_detection : MonoBehaviour, IDamageable
         StartCoroutine(DeathTimer());
     }
 
-    private IEnumerator DeathTimer()
+    protected IEnumerator DeathTimer()
     {
         yield return new WaitForSeconds(deathTimer); //Wait for an amount of seconds = to death timer
         Destroy(this.gameObject);
     }
 
-    private void Damage()
+    protected void Damage()
     {
         kratos.GetComponent<Health>().health -= 0.01f;
     }
