@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

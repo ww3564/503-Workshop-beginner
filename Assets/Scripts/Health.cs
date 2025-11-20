@@ -6,11 +6,6 @@ public class Health : MonoBehaviour
     public float health;
     [SerializeField] Slider healthSlider;
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
