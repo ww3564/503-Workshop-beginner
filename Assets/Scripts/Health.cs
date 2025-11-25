@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -11,5 +12,10 @@ public class Health : MonoBehaviour
     {
         health = Mathf.Clamp01(health);
         healthSlider.value = health;
+
+        if (Mathf.Clamp01(health) < 0.1f)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
 }

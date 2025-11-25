@@ -5,6 +5,8 @@ public class Gate_Opener : MonoBehaviour, IDamageable
 
     [SerializeField] Gate_Moving myGate;
 
+    [SerializeField] GameObject someOpener;
+
     private float numb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
