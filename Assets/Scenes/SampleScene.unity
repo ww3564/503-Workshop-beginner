@@ -8240,7 +8240,7 @@ GameObject:
   - component: {fileID: 1098413405}
   m_Layer: 3
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8310,7 +8310,7 @@ Transform:
   m_GameObject: {fileID: 1098413400}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000046193594, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.65, y: -0.129, z: 0.07}
+  m_LocalPosition: {x: 0.35, y: -0.129, z: 0.21}
   m_LocalScale: {x: 0.45095906, y: 0.22407588, z: 0.7872036}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9265,7 +9265,7 @@ GameObject:
   - component: {fileID: 1222176846}
   m_Layer: 3
   m_Name: Kratos 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13873,7 +13873,7 @@ GameObject:
   - component: {fileID: 1589109621}
   m_Layer: 3
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15168,9 +15168,10 @@ GameObject:
   - component: {fileID: 1734429801}
   - component: {fileID: 1734429800}
   - component: {fileID: 1734429804}
+  - component: {fileID: 1734429805}
   m_Layer: 0
-  m_Name: Ground
-  m_TagString: Platforms
+  m_Name: The Void
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15294,6 +15295,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1734429805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734429799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7794f6e044c00fb4b99980238288f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Void
 --- !u!1 &1735954582
 GameObject:
   m_ObjectHideFlags: 0
