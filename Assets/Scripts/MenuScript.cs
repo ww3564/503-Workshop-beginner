@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,18 @@ public class MenuScript : MonoBehaviour
     [SerializeField] GameObject quitButton;
 
     public void StartGame()
+    {
+        StartCoroutine(DeleteThenStart());
+    }
+
+    private IEnumerator DeleteThenStart()
+    {
+        Saving_and_Loading.DeleteAllData();
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void LoadData()
     {
         SceneManager.LoadSceneAsync(1);
     }

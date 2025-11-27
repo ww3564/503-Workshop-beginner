@@ -33,6 +33,11 @@ public class Kratos_movement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         i = this;
+
+        if(Saving_and_Loading.IsThereDataToLoad())
+        {
+            transform.position = Saving_and_Loading.LoadData().playerPos;
+        }
     }
 
     private void OnDestroy()
