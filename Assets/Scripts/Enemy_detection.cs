@@ -73,7 +73,7 @@ public class Enemy_detection : MonoBehaviour, IDamageable
 
     protected void Damage()
     {
-        kratos.GetComponent<Health>().health -= 0.01f;
+        kratos.GetComponent<Health>().health -= 0.05f * Time.deltaTime;
     }
 }
 

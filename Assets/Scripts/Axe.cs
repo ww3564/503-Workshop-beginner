@@ -34,6 +34,7 @@ public class Axe : MonoBehaviour
         if(state == axeState.held)
         {
             transform.position = hand.transform.position;
+            transform.rotation = hand.transform.rotation;
         }
     }
 

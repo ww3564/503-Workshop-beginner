@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
         health = Mathf.Clamp01(health);
         healthSlider.value = health;
 
-        if (Mathf.Clamp01(health) < 0.1f)
+        if (Mathf.Clamp01(health) == 0f)
         {
             SceneManager.LoadSceneAsync(0);
         }

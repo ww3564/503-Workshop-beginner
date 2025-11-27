@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Kratos_movement : MonoBehaviour
 {
+    public static Kratos_movement i;
+
     [SerializeField] private Vector2 movementInput = Vector2.zero;
     private bool jumpInput;
 
@@ -29,6 +31,13 @@ public class Kratos_movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        i = this;
+    }
+
+    private void OnDestroy()
+    {
+        i = null;
     }
 
     private void Update()
@@ -69,7 +78,7 @@ public class Kratos_movement : MonoBehaviour
     {
         RaycastHit hitInfo;
         MeshCollider col = GetComponentInChildren<MeshCollider>();
-        Vector3 rayCastOffset = -Vector3.up * col.bounds.extents.y;
+        Vector3 rayCastOffset = -Vector3.up * col.bounds.extents.y * 0.9f;
         Physics.Raycast(transform.position + rayCastOffset, -transform.up, out hitInfo, groundDistanceCheck);
         Debug.DrawRay(transform.position + rayCastOffset, -transform.up * groundDistanceCheck, Color.red, 0.1f);
 
@@ -99,6 +108,11 @@ public class Kratos_movement : MonoBehaviour
 
     public void MoveCamera(InputAction.CallbackContext newInput) //Assign an Input Event to this, using Mouse Delta / Joystick input
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         Vector2 inputAxes = newInput.ReadValue<Vector2>() * cameraSensitivity; // Get Mouse Input * mouseSensitivity
 
         #region HorizontalMovement
