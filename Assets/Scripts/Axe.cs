@@ -84,6 +84,7 @@ public class Axe : MonoBehaviour
         if (col.gameObject.GetComponent<IDamageable>() != null)
         {
             col.gameObject.GetComponent<IDamageable>().Axe();
+            //AudioSource.PlayClipAtPoint(0) code for playing an audio source at an instance.
         }
 
         if (col.gameObject.transform.parent == null)
