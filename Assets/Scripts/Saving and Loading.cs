@@ -35,6 +35,6 @@ public class Saving_and_Loading : MonoBehaviour
 
     public static void DeleteAllData()
     {
-        System.IO.File.Delete(Application.persistentDataPath + "/SavaData.json");
+        System.IO.File.Delete(Application.persistentDataPath + "/SaveData.json");
     }
 }
