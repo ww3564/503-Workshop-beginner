@@ -12,7 +12,7 @@ public class Enemy_detection : MonoBehaviour, IDamageable
 
     protected bool dead = false;
 
-    [SerializeField] float deathTimer = 3f;
+    [SerializeField] float deathTimer = 1f;
 
     // Update is called once per frame
     protected virtual void Update()
@@ -73,7 +73,7 @@ public class Enemy_detection : MonoBehaviour, IDamageable
 
     protected void Damage()
     {
-        kratos.GetComponent<Health>().health -= 0.05f * Time.deltaTime;
+        kratos.GetComponent<Health>().health -= 0.07f * Time.deltaTime;
     }
 }
 

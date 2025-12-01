@@ -4180,7 +4180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 399027030}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 1945690915}
   - {fileID: 1587402344}
@@ -8664,7 +8664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 187718567}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 425525647}
   - {fileID: 1793532235}
@@ -10414,7 +10414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 271276068}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 401218443}
   - {fileID: 109743182}
@@ -14538,7 +14538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 673393340}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 742956145}
   - {fileID: 617149058}
@@ -15025,7 +15025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 1248258971}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 439943855}
   - {fileID: 2006578464}
@@ -15256,7 +15256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_detection
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 143976433}
-  deathTimer: 3
+  deathTimer: 1
 --- !u!1 &1407701311
 GameObject:
   m_ObjectHideFlags: 0
@@ -15467,7 +15467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 825677864}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 271750146}
   - {fileID: 2077343041}
@@ -16469,7 +16469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 1331788902}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 716480001}
   - {fileID: 831044152}
@@ -17692,7 +17692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 420217337}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 1923157746}
   - {fileID: 997889528}
@@ -21154,7 +21154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_detection
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 352394426}
-  deathTimer: 3
+  deathTimer: 1
 --- !u!136 &1756224020
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21862,7 +21862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 364276501}
-  deathTimer: 3
+  deathTimer: 1
   waypoints:
   - {fileID: 546407195}
   - {fileID: 1822096936}
@@ -22159,7 +22159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_detection
   kratos: {fileID: 1222176838}
   detectionObject: {fileID: 513255293}
-  deathTimer: 3
+  deathTimer: 1
 --- !u!136 &1859588057
 CapsuleCollider:
   m_ObjectHideFlags: 0
