@@ -119,8 +119,30 @@
                 },
                 {
                     "name": "",
+                    "id": "50cb2d28-89fd-4f7d-8615-adf362435555",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0bdc99e1-1ad6-40b6-b276-1833925dcaba",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Recall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7735be63-75d5-4936-9569-c9cc45623d91",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -131,7 +153,18 @@
                 {
                     "name": "",
                     "id": "19ad202b-3d35-49bd-b852-e0b321eef5d8",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d4f9cf3-1a8e-4cd7-b557-a7f1512083a8",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -174,8 +207,30 @@
                 },
                 {
                     "name": "",
+                    "id": "e6fdc90d-3b73-46ef-acc5-33e7ffff9393",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8dab3dab-49be-4835-be24-57c6c31ec257",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9c11129-04f6-47dc-a5c3-e3083d0c2503",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
